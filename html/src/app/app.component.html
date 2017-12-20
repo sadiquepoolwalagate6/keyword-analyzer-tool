@@ -8,19 +8,19 @@
       <hr>
       <div class="form-group">
         <label>Enter Url </label>
-        <input type="text" class="form-control" placeholder="http://www.example.com">
+        <input type="text" class="form-control" name="url" [(ngModel)]="model.url" placeholder="http://www.example.com">
       </div>
       <label>Chosse Keyword:</label>
       <div class="checkbox">
 
         <label>
-          <input type="checkbox" name="keyword" value="Mobile"> Mobile</label>
+          <input type="checkbox" name="Mobile" [(ngModel)]="model.Mobile" value="Mobile"> Mobile</label> 
         <label>
-          <input type="checkbox" name="keyword" value="Laptop"> Laptop</label>
+          <input type="checkbox" name="Laptop" [(ngModel)]="model.Laptop" value="Laptop"> Laptop</label>
         <label>
-          <input type="checkbox" name="keyword" value="TV"> TV</label>
+          <input type="checkbox" name="TV" [(ngModel)]="model.TV" value="TV"> TV</label>
       </div>
-      <button class="btn btn-primary">Analyse</button>
+      <button class="btn btn-primary" (click)="httpGet(model.url)">Analyse</button>
       <hr>
       <div class="table-responsive">
         <table class="table table-striped table-bordered">
@@ -36,28 +36,28 @@
           </thead>
           <tbody>
             <tr>
-              <td>Mobile - 40%</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>Mobile - {{data.laptopCount.density}}</td>
+              <td>{{data.mobileCount.h1}}</td>
+              <td>{{data.mobileCount.h2}}</td>
+              <td>{{data.mobileCount.meta}}</td>
+              <td>{{data.mobileCount.others}}</td>
+              <td>{{data.mobileCount.overall}}</td>
             </tr>
             <tr>
-              <td>Laptop - 40%</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>Laptop - {{data.laptopCount.density}}</td>
+              <td>{{data.laptopCount.h1}}</td>
+              <td>{{data.laptopCount.h2}}</td>
+              <td>{{data.laptopCount.meta}}</td>
+              <td>{{data.laptopCount.others}}</td>
+              <td>{{data.laptopCount.overall}}</td>
             </tr>
             <tr>
-              <td>TV - 40%</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>TV - {{data.tvCount.density}}</td>
+              <td>{{data.tvCount.h1}}</td>
+              <td>{{data.tvCount.h2}}</td>
+              <td>{{data.tvCount.meta}}</td>
+              <td>{{data.tvCount.others}}</td>
+              <td>{{data.tvCount.overall}}</td>
             </tr>
           </tbody>
         </table>
